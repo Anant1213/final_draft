@@ -58,8 +58,8 @@ def get_answer_from_gpt(pdf_text, query, user_name):
     )
 
     user_prompt = (
-        f"Here is some information from the university:\n\n{pdf_text}\n\n{user_name}'s Question: {query}\n\nProvide a concise answer. keeping in mind that if you don't have any information about the question, you can say 'I'm sorry, I don't have that information, our counselars will call
-        . you cannot talk anything apart from college text provided to you."
+        f"Here is some information from the university:\n\n{pdf_text}\n\n{user_name}'s Question: {query}\n\nProvide a concise answer. Keep in mind that if you don't have any information about the question, you can say 'I'm sorry, I don't have that information, our counselors will call.'"
+
     )
 
     try:
