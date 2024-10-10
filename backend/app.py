@@ -17,6 +17,7 @@ app = Flask(
     template_folder="/Users/anant/projects/multi-link multi pdf/web_trial/Frontend/templates",
     static_folder="/Users/anant/projects/multi-link multi pdf/web_trial/Frontend/static"
 )
+
 app.secret_key = "your_secret_key"
 
 # Configure server-side session
