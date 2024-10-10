@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 import json
 from flask_session import Session
-from pdf_processing import extract_text_from_pdf
+from backend.pdf_processing import extract_text_from_pdf
 
 # Load environment variables
 load_dotenv(dotenv_path=Path(__file__).parent / '.env')
