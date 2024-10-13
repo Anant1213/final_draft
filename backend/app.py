@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).parent.parent
 app = Flask(
     __name__,
     template_folder=os.path.join(BASE_DIR, 'Frontend', 'Template'),  # Corrected 'Frontend'
-    static_folder=os.path.join(BASE_DIR, 'Frontend', 'Static')
+    static_folder=os.path.join(BASE_DIR, 'Frontend', 'static')
 )
 
 
