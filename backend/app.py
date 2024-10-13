@@ -15,8 +15,8 @@ BASE_DIR = Path(__file__).parent.parent
 # Initialize Flask app
 app = Flask(
     __name__,
-    template_folder=os.path.join(BASE_DIR, 'frontend', 'templates'),  # Corrected 'Frontend'
-    static_folder=os.path.join(BASE_DIR, 'frontend', 'static')
+    template_folder=os.path.join(BASE_DIR, 'Frontend', 'Template'),  # Corrected 'Frontend'
+    static_folder=os.path.join(BASE_DIR, 'Frontend', 'Static')
 )
 
 
@@ -83,7 +83,7 @@ import os
 @app.route('/')
 def index():
     # Add print statements to check if Flask can find the paths correctly
-    print("Templates folder:", app.template_folder)
+    print("Template folder:", app.template_folder)
     print("Static folder:", app.static_folder)
     print("Index file exists:", os.path.exists(os.path.join(app.template_folder, 'index.html')))
     
