@@ -14,8 +14,8 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 # Initialize Flask app
 app = Flask(
     __name__,
-    template_folder="/Users/anant/projects/multi-link multi pdf/web_trial/Frontend/templates/index.html",
-    static_folder="/Users/anant/projects/multi-link multi pdf/web_trial/Frontend/static"
+    template_folder="Users/anant/projects/multi-link multi pdf/web_trial/frontend/templates",  # Absolute path
+    static_folder="/Users/anant/projects/multi-link multi pdf/web_trial/frontend/static"        # Absolute path
 )
 
 
