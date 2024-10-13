@@ -11,11 +11,12 @@ from backend.pdf_processing import extract_text_from_pdf
 load_dotenv(dotenv_path=Path(__file__).parent / '.env')
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+BASE_DIR = Path(__file__).parent.parent
 # Initialize Flask app
 app = Flask(
     __name__,
-    template_folder="Users/anant/projects/multi-link multi pdf/web_trial/frontend/templates",  # Absolute path
-    static_folder="/Users/anant/projects/multi-link multi pdf/web_trial/frontend/static"        # Absolute path
+    template_folder=os.path.join(BASE_DIR, 'frontend', 'templates'),  # Corrected 'Frontend'
+    static_folder=os.path.join(BASE_DIR, 'frontend', 'static')
 )
 
 
@@ -81,10 +82,13 @@ import os
 
 @app.route('/')
 def index():
+    # Add print statements to check if Flask can find the paths correctly
     print("Templates folder:", app.template_folder)
     print("Static folder:", app.static_folder)
     print("Index file exists:", os.path.exists(os.path.join(app.template_folder, 'index.html')))
+    
     return render_template('index.html')
+
 
 
 @app.route('/amity')
