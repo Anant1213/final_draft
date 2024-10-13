@@ -33,11 +33,11 @@ USER_DATA_FILE = Path(__file__).parent / 'user_data.json'
 
 # PDF Mapping (Update with correct paths)
 PDF_MAP = {
-    "amity": "/Users/anant/projects/multi-link multi pdf/web_trail/pdfs/Amity.pdf",
-    "chandigarh": "/Users/anant/projects/multi-link multi pdf/web_trail/pdfs/chandigarh.pdf",
-    "woxsen": "/Users/anant/projects/multi-link multi pdf/web_trail/pdfs/woxsen.pdf",
-    "dbs": "/Users/anant/projects/multi-link multi pdf/web_trail/pdfs/dbs.pdf",
-    "jklu": "/Users/anant/projects/multi-link multi pdf/web_trail/pdfs/jklu.pdf"
+    "amity": str(BASE_DIR / 'pdfs' / 'Amity.pdf'),
+    "chandigarh": str(BASE_DIR / 'pdfs' / 'chandigarh.pdf'),
+    "woxsen": str(BASE_DIR / 'pdfs' / 'woxsen.pdf'),
+    "dbs": str(BASE_DIR / 'pdfs' / 'dbs.pdf'),
+    "jklu": str(BASE_DIR / 'pdfs' / 'jklu.pdf')
 }
 
 # Save user info function
