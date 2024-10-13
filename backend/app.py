@@ -77,9 +77,15 @@ def get_answer_from_gpt(pdf_text, query, user_name):
     except Exception as e:
         return f"Error communicating with OpenAI API: {str(e)}"
 
+import os
+
 @app.route('/')
 def index():
+    print("Templates folder:", app.template_folder)
+    print("Static folder:", app.static_folder)
+    print("Index file exists:", os.path.exists(os.path.join(app.template_folder, 'index.html')))
     return render_template('index.html')
+
 
 @app.route('/amity')
 def amity_page():
