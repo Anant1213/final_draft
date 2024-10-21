@@ -3,39 +3,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
 
-    sendButton.addEventListener('click', () => {
-        const message = userInput.value.trim();
-
-        if (!message) return;  // Don't proceed if the message is empty
-
-        // Add the user message to the chat box
-        addMessage("You: " + message, 'user');
-
-        // Send the query to the backend
-        fetch('/chat', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ message: message })  // Pass only the message, backend manages the flow
-        })
+    // Send an initial greeting message when the page loads
+    fetch('/greet')
         .then(response => response.json())
         .then(data => {
-            if (data.error) {
-                // Handle errors and show them to the user
-                addMessage("Bot: " + data.error, 'bot');
-            } else if (data.message) {
-                // Display the chatbot's response
-                addMessage("Bot: " + data.message, 'bot');
-            }
-
-            // Clear the input field after sending the message
-            userInput.value = '';  // Clear input for next message
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            addMessage("Bot: Error communicating with the server.", 'bot');
+            addMessage("Bot: " + data.message, 'bot');
         });
+
+    sendButton.addEventListener('click', () => {
+        const message = userInput.value.trim();
+        if (!message) return;
+
+        addMessage("You: " + message, 'user');
+
+        fetch('/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: message })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    addMessage("Bot: " + data.error, 'bot');
+                } else if (data.message) {
+                    addMessage("Bot: " + data.message, 'bot');
+                }
+                userInput.value = '';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                addMessage("Bot: Error communicating with the server.", 'bot');
+            });
     });
 
     function addMessage(text, sender) {
