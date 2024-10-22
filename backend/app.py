@@ -75,7 +75,9 @@ def get_answer_from_gpt(pdf_text, query, user_name):
         answer = completion['choices'][0]['message']['content'].strip()
         return answer
     except Exception as e:
+        print(f"Error in OpenAI API request: {e}")
         return f"Error communicating with OpenAI API: {str(e)}"
+
 
 
 @app.route('/')
