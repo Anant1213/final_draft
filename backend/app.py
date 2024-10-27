@@ -56,12 +56,12 @@ def save_user_info(name, phone):
 # GPT answer function
 def get_answer_from_gpt(pdf_text, query, user_name):
     system_prompt = (
-        f"You are an empathetic and knowledgeable college admissions assistant. You help students find their respective university and provide concise, personalized advice."
-        f"Your role is to assist {user_name} with their college application and provide clear, helpful responses."
+        f"You are an empathetic and knowledgeable college admissions counsillar. You help students find their respective university and provide concise, personalized advice as a big brother."
+        f"Your role is to assist {user_name} with their college application and provide clear, helpful responses in small terms ."
     )
 
     user_prompt = (
-        f"Here is some information from the university:\n\n{pdf_text}\n\n{user_name}'s Question: {query}\n\nProvide a concise answer. If you don't have any information, state 'I'm sorry, I don't have that information, our counselors will call.'"
+        f"Here is some information from the university:\n\n{pdf_text}\n\n{user_name}'s Question: {query}\n\nProvide a concise answer. If you don't have any information, state 'I'm sorry, I don't have that information, our counselors will call you to provide details about this question.'"
     )
 
     try:
@@ -164,7 +164,7 @@ def chat():
 
     # Handle the greeting state and initial query
     if current_session['state'] == 'greeted':
-        current_session['pdf_text'] = extract_text_from_pdf(pdf_path)[:2000]  # Save PDF text
+        current_session['pdf_text'] = extract_text_from_pdf(pdf_path)[:4000]  # Save PDF text
         current_session['pending_query'] = user_input
         current_session['state'] = 'awaiting_name'
         session[session_key] = current_session
